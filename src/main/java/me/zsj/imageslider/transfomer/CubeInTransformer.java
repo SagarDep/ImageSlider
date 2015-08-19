@@ -20,13 +20,8 @@ public class CubeInTransformer implements ViewPager.PageTransformer {
     @Override
     public void transformPage(View view, float position) {
 
-        if (position < -1) {
-            ViewHelper.setPivotX(view, 0);
-        }else if (position <= 0) {
-            ViewHelper.setPivotX(view, view.getWidth());
-        }else if (position <= 1) {
-            ViewHelper.setPivotY(view,0);
-            ViewHelper.setRotation(view, -90f * position);
-        }
+        ViewHelper.setPivotX(view,position > 0 ? 0 : view.getWidth());
+        ViewHelper.setPivotY(view,0);
+        ViewHelper.setRotation(view,-90f * position);
     }
 }

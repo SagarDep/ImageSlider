@@ -11,18 +11,34 @@ import me.zsj.imageslider.indicator.ViewPager;
  */
 public class FlipHorizontalTransformer implements ViewPager.PageTransformer {
 
+    private static final float ROTATION = 180.0f;
     /**
-     * 代码参考 damajia 的 AndroidImageSlider 开源库源码
      * @param view
      * @param position Position of page relative to the current front-and-center
      *                 position of the pager. 0 is front and center. 1 is one full
      */
     @Override
     public void transformPage(View view, float position) {
-        final float rotation = 180f * position;
-        ViewHelper.setAlpha(view,rotation > 90f || rotation < -90f ? 0 : 1);
-        ViewHelper.setPivotY(view,view.getHeight()*0.5f);
-        ViewHelper.setPivotX(view,view.getWidth() * 0.5f);
-        ViewHelper.setRotationY(view, rotation);
+        if (position <= 0.0f) {
+            ViewHelper.setTranslationX(view, -view.getWidth() * position);
+            float rotation = (ROTATION * position);
+            ViewHelper.setRotationY(view, rotation);
+
+            if (position > -0.5) {
+                view.setVisibility(View.VISIBLE);
+            } else {
+                view.setVisibility(View.INVISIBLE);
+            }
+        }else if (position <= 1.0f) {
+            ViewHelper.setTranslationX(view, -view.getWidth() * position);
+            float rotation = (ROTATION * position);
+            ViewHelper.setRotationY(view, rotation);
+
+            if (position < 0.5) {
+                view.setVisibility(View.VISIBLE);
+            } else {
+                view.setVisibility(View.INVISIBLE);
+            }
+        }
     }
 }
