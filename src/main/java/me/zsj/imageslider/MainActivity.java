@@ -284,6 +284,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onDestroy() {
         super.onDestroy();
 
-        //mHandler.removeMessages(0);
+        mHandler.removeMessages(0);
     }
 }
