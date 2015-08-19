@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PagerIndicator">
+
+        <attr name="selected_drawable" format="reference"></attr>
+        <attr name="unSelected_color" format="color"></attr>
+        <attr name="selected_color" format="color"></attr>
+    </declare-styleable>
+
+</resources>

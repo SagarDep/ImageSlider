@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <me.zsj.imageslider.IndicatorLayout
+        android:id="@+id/pagerContent"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <me.zsj.imageslider.indicator.BannerViewPager
+            android:id="@+id/sliderPager"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+        <me.zsj.imageslider.indicator.PagerIndicator
+            android:id="@+id/pageIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="170dp"
+            android:gravity="center"
+            custom:selected_drawable="@mipmap/bird"
+            custom:selected_color="#0095BF"
+            custom:unSelected_color="#55333333">
+        </me.zsj.imageslider.indicator.PagerIndicator>
+
+    </me.zsj.imageslider.IndicatorLayout>
+
+    <ListView
+        android:id="@+id/translationList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/pagerContent">
+    </ListView>
+</RelativeLayout>
