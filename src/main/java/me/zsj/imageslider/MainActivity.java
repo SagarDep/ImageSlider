@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -222,7 +222,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         public Object instantiateItem(ViewGroup container, int position) {
 
             ImageView imageView = new ImageView(MainActivity.this);
-            Picasso.with(MainActivity.this).load(mImageSource[position]).fit().into(imageView);
+            //Picasso.with(MainActivity.this).load(mImageSource[position]).fit().into(imageView);
+            Glide.with(MainActivity.this).load(mImageSource[position]).centerCrop().into(imageView);
             container.addView(imageView);
             mImageList.add(imageView);
             return imageView;
